@@ -1,7 +1,5 @@
-import {Component, Prop} from '@stencil/core';
+import {Component} from '@stencil/core';
 import {CommonComponent} from "../../common/classes/CommonComponent";
-import {RouterHistory} from "@stencil/router";
-// import {SuperLoginService} from "../../common/services/superlogin.service";
 
 
 @Component({
@@ -9,7 +7,9 @@ import {RouterHistory} from "@stencil/router";
   styleUrl: 'app-home.css'
 })
 export class AppHome extends  CommonComponent {
-  @Prop() history: RouterHistory;
+
+  componentWillLoad() {
+  }
 
   render() {
     return [
@@ -33,6 +33,9 @@ export class AppHome extends  CommonComponent {
           </ion-button>
           <ion-button href='/rxdb-showcase'>
             RxDB Showcase
+          </ion-button>
+          <ion-button href='/login'>
+            Login
           </ion-button>
         </main>
       </ion-content>

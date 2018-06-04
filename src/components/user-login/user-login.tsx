@@ -1,6 +1,6 @@
-import {Component, Prop} from '@stencil/core';
+import {Component, Prop, State} from '@stencil/core';
 import {RouterHistory} from '@stencil/router';
-import {SuperLoginService} from "../../common/services/superlogin.service";
+import {SuperLoginService} from "../superlogin-service-injector/superlogin.service";
 import {RxDBService} from "../../common/services/rxdb.service";
 import {CommonComponent} from "../../common/classes/CommonComponent";
 
@@ -10,21 +10,23 @@ import {CommonComponent} from "../../common/classes/CommonComponent";
 })
 export class UserLogin extends CommonComponent {
   @Prop() history: RouterHistory;
-  username: string = '';
-  password: string = '';
+  @State() username: string = '';
+  @State() password: string = '';
+
 
   async login() {
-    let credentials = {
-      username: this.username,
-      password: this.password
-    };
-    await SuperLoginService.SuperLoginClient.login(credentials);
+    await SuperLoginService.login(this.username, this.password);
     await RxDBService.init();
-    this.history.replace('/', {});
+    // this.nav.replace('/', {});
+  }
+
+  componentWillLoad() {
+    super.componentWillLoad();
   }
 
   launchSignup() {
-    this.history.push('/registration', {})
+    // this.history.push('/registration', {})
+    // this.navCtrl.push('user-registration', {});
   }
 
   render() {

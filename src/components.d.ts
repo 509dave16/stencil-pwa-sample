@@ -26,8 +26,6 @@ declare global {
   interface HTMLAttributes {}
 }
 
-import '@ionic/core';
-import 'ionicons';
 import '@stencil/router';
 import '@stencil/state-tunnel';
 
@@ -39,7 +37,7 @@ declare global {
 
   namespace StencilComponents {
     interface AppHome {
-      'history': RouterHistory;
+
     }
   }
 
@@ -62,7 +60,7 @@ declare global {
   }
   namespace JSXElements {
     export interface AppHomeAttributes extends HTMLAttributes {
-      'history'?: RouterHistory;
+
     }
   }
 }
@@ -184,30 +182,30 @@ declare global {
 declare global {
 
   namespace StencilComponents {
-    interface DataServiceInjector {
+    interface SuperloginServiceInjector {
       'create': () => Promise<any>;
     }
   }
 
-  interface HTMLDataServiceInjectorElement extends StencilComponents.DataServiceInjector, HTMLStencilElement {}
+  interface HTMLSuperloginServiceInjectorElement extends StencilComponents.SuperloginServiceInjector, HTMLStencilElement {}
 
-  var HTMLDataServiceInjectorElement: {
-    prototype: HTMLDataServiceInjectorElement;
-    new (): HTMLDataServiceInjectorElement;
+  var HTMLSuperloginServiceInjectorElement: {
+    prototype: HTMLSuperloginServiceInjectorElement;
+    new (): HTMLSuperloginServiceInjectorElement;
   };
   interface HTMLElementTagNameMap {
-    'data-service-injector': HTMLDataServiceInjectorElement;
+    'superlogin-service-injector': HTMLSuperloginServiceInjectorElement;
   }
   interface ElementTagNameMap {
-    'data-service-injector': HTMLDataServiceInjectorElement;
+    'superlogin-service-injector': HTMLSuperloginServiceInjectorElement;
   }
   namespace JSX {
     interface IntrinsicElements {
-      'data-service-injector': JSXElements.DataServiceInjectorAttributes;
+      'superlogin-service-injector': JSXElements.SuperloginServiceInjectorAttributes;
     }
   }
   namespace JSXElements {
-    export interface DataServiceInjectorAttributes extends HTMLAttributes {
+    export interface SuperloginServiceInjectorAttributes extends HTMLAttributes {
 
     }
   }

@@ -15,7 +15,9 @@ export function urlB64ToUint8Array(base64String: string) {
 
 
 export function handleInputChangeHoc() {
-  return (propName: string, event: any) => { this[propName] = event.target.value };
+  return function(propName: string, event: any) {
+    this[propName] = event.target.value
+  };
 }
 
 export function handleFormSubmitHoc() {

@@ -15,7 +15,7 @@ exports.config = {
     sass(),
     postcss(),
   ],
-  enableCache: true
+  enableCache: false
 };
 
 exports.devServer = {

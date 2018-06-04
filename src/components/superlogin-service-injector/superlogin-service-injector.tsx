@@ -1,13 +1,14 @@
 import {Component, Method} from '@stencil/core';
-
+import {SuperLoginServiceClass} from "./superlogin.service";
+const superloginService = new SuperLoginServiceClass();
 @Component({
-  tag: 'data-service-injector'
+  tag: 'superlogin-service-injector'
 })
 export class DataServiceInjector  {
   @Method()
   create(): Promise<any> {
     return new Promise(resolve => {
-      resolve({});
+      resolve(superloginService);
     });
   }
 }
