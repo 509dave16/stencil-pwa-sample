@@ -1,14 +1,17 @@
 import { Component, Listen, Prop, State } from '@stencil/core';
 
 import { urlB64ToUint8Array } from '../../helpers/utils';
+import {RouterHistory} from "@stencil/router";
+// import {SuperLoginService} from "../../common/services/superlogin.service";
+import {CommonComponent} from "../../common/classes/CommonComponent";
 
 
 @Component({
   tag: 'app-profile',
   styleUrl: 'app-profile.css'
 })
-export class AppProfile {
-
+export class AppProfile extends CommonComponent {
+  @Prop() history: RouterHistory;
   @Prop({ connect: 'ion-toast-controller' }) toastCtrl: HTMLIonToastControllerElement;
   @Prop() name: string;
 
@@ -20,11 +23,15 @@ export class AppProfile {
   publicServerKey = urlB64ToUint8Array('BBsb4au59pTKF4IKi-aJkEAGPXxtzs-lbtL58QxolsT2T-3dVQIXTUCCE1TSY8hyUvXLhJFEUmH7b5SJfSTcT-E');
 
   componentWillLoad() {
+    // if (!SuperLoginService.SuperLoginClient.authenticated()) {
+    //   this.history.replace('/login', {});
+    // }
     if ('serviceWorker' in navigator && 'PushManager' in window) {
       this.swSupport = true;
     } else {
       this.swSupport = false;
     }
+    super.componentWillLoad();
   }
 
   @Listen('ionChange')

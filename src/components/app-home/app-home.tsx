@@ -1,11 +1,15 @@
-import { Component } from '@stencil/core';
+import {Component, Prop} from '@stencil/core';
+import {CommonComponent} from "../../common/classes/CommonComponent";
+import {RouterHistory} from "@stencil/router";
+// import {SuperLoginService} from "../../common/services/superlogin.service";
 
 
 @Component({
   tag: 'app-home',
   styleUrl: 'app-home.css'
 })
-export class AppHome {
+export class AppHome extends  CommonComponent {
+  @Prop() history: RouterHistory;
 
   render() {
     return [
@@ -26,6 +30,9 @@ export class AppHome {
 
           <ion-button href='/profile/ionic'>
             Profile page
+          </ion-button>
+          <ion-button href='/rxdb-showcase'>
+            RxDB Showcase
           </ion-button>
         </main>
       </ion-content>

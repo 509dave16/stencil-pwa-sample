@@ -28,13 +28,18 @@ declare global {
 
 import '@ionic/core';
 import 'ionicons';
+import '@stencil/router';
+import '@stencil/state-tunnel';
 
+import {
+  RouterHistory,
+} from '@stencil/router';
 
 declare global {
 
   namespace StencilComponents {
     interface AppHome {
-
+      'history': RouterHistory;
     }
   }
 
@@ -57,7 +62,7 @@ declare global {
   }
   namespace JSXElements {
     export interface AppHomeAttributes extends HTMLAttributes {
-
+      'history'?: RouterHistory;
     }
   }
 }
@@ -67,6 +72,7 @@ declare global {
 
   namespace StencilComponents {
     interface AppProfile {
+      'history': RouterHistory;
       'name': string;
     }
   }
@@ -90,6 +96,7 @@ declare global {
   }
   namespace JSXElements {
     export interface AppProfileAttributes extends HTMLAttributes {
+      'history'?: RouterHistory;
       'name'?: string;
     }
   }
@@ -124,6 +131,150 @@ declare global {
   namespace JSXElements {
     export interface MyAppAttributes extends HTMLAttributes {
 
+    }
+  }
+}
+
+
+declare global {
+
+  namespace StencilComponents {
+    interface RxdbShowcase {
+      'authorId': string;
+      'authors': any[];
+      'bookTitle': string;
+      'books': any[];
+      'detachAuthorId': string;
+      'detachBookId': string;
+      'newAuthorId': string;
+    }
+  }
+
+  interface HTMLRxdbShowcaseElement extends StencilComponents.RxdbShowcase, HTMLStencilElement {}
+
+  var HTMLRxdbShowcaseElement: {
+    prototype: HTMLRxdbShowcaseElement;
+    new (): HTMLRxdbShowcaseElement;
+  };
+  interface HTMLElementTagNameMap {
+    'rxdb-showcase': HTMLRxdbShowcaseElement;
+  }
+  interface ElementTagNameMap {
+    'rxdb-showcase': HTMLRxdbShowcaseElement;
+  }
+  namespace JSX {
+    interface IntrinsicElements {
+      'rxdb-showcase': JSXElements.RxdbShowcaseAttributes;
+    }
+  }
+  namespace JSXElements {
+    export interface RxdbShowcaseAttributes extends HTMLAttributes {
+      'authorId'?: string;
+      'authors'?: any[];
+      'bookTitle'?: string;
+      'books'?: any[];
+      'detachAuthorId'?: string;
+      'detachBookId'?: string;
+      'newAuthorId'?: string;
+    }
+  }
+}
+
+
+declare global {
+
+  namespace StencilComponents {
+    interface DataServiceInjector {
+      'create': () => Promise<any>;
+    }
+  }
+
+  interface HTMLDataServiceInjectorElement extends StencilComponents.DataServiceInjector, HTMLStencilElement {}
+
+  var HTMLDataServiceInjectorElement: {
+    prototype: HTMLDataServiceInjectorElement;
+    new (): HTMLDataServiceInjectorElement;
+  };
+  interface HTMLElementTagNameMap {
+    'data-service-injector': HTMLDataServiceInjectorElement;
+  }
+  interface ElementTagNameMap {
+    'data-service-injector': HTMLDataServiceInjectorElement;
+  }
+  namespace JSX {
+    interface IntrinsicElements {
+      'data-service-injector': JSXElements.DataServiceInjectorAttributes;
+    }
+  }
+  namespace JSXElements {
+    export interface DataServiceInjectorAttributes extends HTMLAttributes {
+
+    }
+  }
+}
+
+
+declare global {
+
+  namespace StencilComponents {
+    interface UserLogin {
+      'history': RouterHistory;
+    }
+  }
+
+  interface HTMLUserLoginElement extends StencilComponents.UserLogin, HTMLStencilElement {}
+
+  var HTMLUserLoginElement: {
+    prototype: HTMLUserLoginElement;
+    new (): HTMLUserLoginElement;
+  };
+  interface HTMLElementTagNameMap {
+    'user-login': HTMLUserLoginElement;
+  }
+  interface ElementTagNameMap {
+    'user-login': HTMLUserLoginElement;
+  }
+  namespace JSX {
+    interface IntrinsicElements {
+      'user-login': JSXElements.UserLoginAttributes;
+    }
+  }
+  namespace JSXElements {
+    export interface UserLoginAttributes extends HTMLAttributes {
+      'history'?: RouterHistory;
+    }
+  }
+}
+
+
+declare global {
+
+  namespace StencilComponents {
+    interface UserSignup {
+      'history': RouterHistory;
+    }
+  }
+
+  interface HTMLUserSignupElement extends StencilComponents.UserSignup, HTMLStencilElement {}
+
+  var HTMLUserSignupElement: {
+    prototype: HTMLUserSignupElement;
+    new (): HTMLUserSignupElement;
+  };
+  interface HTMLElementTagNameMap {
+    'user-signup': HTMLUserSignupElement;
+  }
+  interface ElementTagNameMap {
+    'user-signup': HTMLUserSignupElement;
+  }
+  namespace JSX {
+    interface IntrinsicElements {
+      'user-signup': JSXElements.UserSignupAttributes;
+    }
+  }
+  namespace JSXElements {
+    export interface UserSignupAttributes extends HTMLAttributes {
+      'history'?: RouterHistory;
     }
   }
 }

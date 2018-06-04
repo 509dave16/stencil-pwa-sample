@@ -1,5 +1,5 @@
 const sass = require('@stencil/sass');
-
+const postcss = require('@stencil/postcss');
 exports.config = {
   outputTargets: [
     {
@@ -12,9 +12,10 @@ exports.config = {
   globalScript: 'src/global/app.ts',
   globalStyle: 'src/global/app.css',
   plugins: [
-    sass()
+    sass(),
+    postcss(),
   ],
-  enableCache: false
+  enableCache: true
 };
 
 exports.devServer = {
