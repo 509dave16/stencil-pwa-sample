@@ -7,7 +7,7 @@ import {CommonComponent} from "../../common/classes/CommonComponent";
   tag: 'rxdb-showcase',
   styleUrl: 'rxdb-showcase.sass'
 })
-export class RxDBShowcase extends CommonComponent{
+export class RxDBShowcase extends CommonComponent {
   @Prop() authors: any[] = [];
   @Prop() books: any[] = [];
   @Prop() bookTitle: string;
@@ -18,13 +18,13 @@ export class RxDBShowcase extends CommonComponent{
   @Prop({connect: 'ion-alert-controller'}) alertCtrl: AlertController;
   @Prop({connect: 'ion-loading-controller'}) loadCtrl: LoadingController;
 
-   addBookToAuthor = async() => {
+  addBookToAuthor = async () => {
     let errorMessage = '';
     if (!this.authorId) {
       errorMessage += 'Must enter a number for Author Id.';
     }
     if (!this.bookTitle) {
-      errorMessage += errorMessage ? ' And must': 'Must';
+      errorMessage += errorMessage ? ' And must' : 'Must';
       errorMessage += ' enter a title for the book.';
     }
     if (errorMessage) {
@@ -45,20 +45,20 @@ export class RxDBShowcase extends CommonComponent{
     loading.dismiss();
   };
 
-  async removeAllData() {
+  removeAllData = async () => {
     const loading = await this.loadCtrl.create({content: 'Removing all docs'});
     loading.present();
     // await this.relationalService.removeAllData();
     loading.dismiss();
-  }
+  };
 
-  async removeBookFromAuthor() {
+  removeBookFromAuthor = async () => {
     let errorMessage = '';
     if (!this.detachAuthorId) {
       errorMessage += 'Must enter a number for Author Id.';
     }
     if (!this.detachBookId) {
-      errorMessage += errorMessage ? ' And must': 'Must';
+      errorMessage += errorMessage ? ' And must' : 'Must';
       errorMessage += 'Must enter a number for the Book Id.';
     }
     if (errorMessage) {
@@ -77,9 +77,9 @@ export class RxDBShowcase extends CommonComponent{
     this.detachBookId = '';
     this.detachAuthorId = '';
     loading.dismiss();
-  }
+  };
 
-  async addAuthor() {
+   addAuthor = async() => {
     let errorMessage = '';
     if (!this.newAuthorId) {
       errorMessage += 'Must enter a number for Author Id.';
@@ -98,7 +98,7 @@ export class RxDBShowcase extends CommonComponent{
     // const author: DocModel = await this.relationalService.createAuthor(this.newAuthorId);
     this.newAuthorId = '';
     loading.dismiss();
-  }
+  };
 
   render() {
     return [
@@ -128,7 +128,7 @@ export class RxDBShowcase extends CommonComponent{
         </ion-item-group>
         <ion-item-group>
           <ion-item-divider color="light">Remove Book From Author</ion-item-divider>
-          <form onSubmit={(e) => this.handleFormSubmit(e,this.removeBookFromAuthor)}>
+          <form onSubmit={(e) => this.handleFormSubmit(e, this.removeBookFromAuthor)}>
             <ion-item>
               <ion-label>Author Id</ion-label>
               <ion-input type="number" onInput={(e) => this.handleInputChange('detachAuthorId', e)}

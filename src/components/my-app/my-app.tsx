@@ -28,9 +28,48 @@ export class MyApp {
     window.location.reload();
   }
 
+
+  componentDidLoad = async () => {
+    this.presentModal();
+  };
+
+  presentModal = async() => {
+    // initialize controller
+    const modalController = document.querySelector('ion-modal-controller');
+    await modalController.componentOnReady();
+
+    // create component to open
+    const element = document.createElement('div');
+    element.innerHTML = `
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>Notice</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content>
+    <h1>Please Login</h1>
+    <ion-button href="/user-login" class="dismiss">Login</ion-button>
+  </ion-content>
+  `;
+
+    // listen for close event
+    const button = element.querySelector('ion-button');
+    button.addEventListener('click', () => {
+      modalController.dismiss();
+    });
+
+    // present the modal
+    const modalElement = await modalController.create({
+      component: element
+    });
+    modalElement.present();
+  };
+
+
   render() {
     return (
       <ion-app>
+        <ion-modal-controller></ion-modal-controller>
         <ion-router useHash={false}>
           <ion-route url='/' component='app-home'></ion-route>
           <ion-route url='/profile/:name' component='app-profile'></ion-route>
